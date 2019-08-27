@@ -134,7 +134,8 @@ def login():
         if len(result) > 0:
             if bcrypt.check_password_hash(result[0]['password'], request.form['pwd']):
                 # if we get True after checking the password, we may put the user id in session
-                session['userid'] = result[0]['id']
+                #change it to session['id']
+                session['id'] = result[0]['id']
                 session['name'] = result[0]['first_name']
                 # never render on a post, always redirect!
                 # return redirect('/success')
